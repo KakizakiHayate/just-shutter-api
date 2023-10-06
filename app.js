@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
+const PORT = 8000;
+const foodRouter = require('./routes/food-router.js');
 
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
-});
+app.use("/", foodRouter);
 
-const PORT = 3000;
+// ローカルサーバーを起動
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+module.exports = app;
