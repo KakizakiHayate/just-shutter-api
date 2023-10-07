@@ -3,10 +3,10 @@ const router = express.Router();
 const bodyParser = require("body-parser");
 
 // パースする
-router.use(bodyParser.json());
+router.use(bodyParser.json( { extended: true, limit: '10mb' } ));
 
-router.get("/food", (req, res) => {
-  console.log(req.query);
+router.post("/food", (req, res) => {
+  console.log(req.body);
   const requestData = {
     message: "Response Succses!",
     status: 200
